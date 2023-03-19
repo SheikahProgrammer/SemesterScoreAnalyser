@@ -36,5 +36,5 @@ class CourseLab:
         with open('Lab.csv', 'a', newline='') as file:
             csv.writer(file).writerow([self.code, BLTS(self.ias),self.fat ,self.score])
 
-EXAMPLE = CourseLab('BEXP101P',100,[10,10,10,10,5])
-EXAMPLE.Save()
+#EXAMPLE = CourseLab('BEXP101P',100,[10,10,10,10,5])
+#EXAMPLE.Save()
