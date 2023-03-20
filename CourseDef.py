@@ -38,3 +38,20 @@ class CourseLab:
 
 #EXAMPLE = CourseLab('BEXP101P',100,[10,10,10,10,5])
 #EXAMPLE.Save()
+
+class CourseEmbedded:
+    def __init__(self,code, fat, pats,mat):
+        self.code = code
+        self.fat = fat
+        self.mat = mat
+        self.pats = pats
+        self.score = ((((self.fat)/100)*0.4)+ (sum(self.pats)/(len(self.pats)*10))*0.5+(((self.mat)/50)*0.1))*100 
+    def ShowScore(self):
+        print(str(self.score)+" %")
+    def Save(self):
+        with open('Embedded.csv', 'a', newline='') as file:
+            csv.writer(file).writerow([self.code, BLTS(self.pats),self.mat,self.fat ,self.score])
+
+#EXAMPLE = CourseEmbedded('BEXP101E',100,[10,10,10,10,10],50)
+#EXAMPLE.ShowScore()
+#EXAMPLE.Save()
