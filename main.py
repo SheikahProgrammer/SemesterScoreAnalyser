@@ -4,6 +4,7 @@ while True:
     print("""
     Press 1 for insertion of data
     Press 2 for viewing data
+    Press 3 for exiting
     """)
     cmd = int(input())
     if cmd == 1:
@@ -15,24 +16,29 @@ while True:
         cmd = int(input())
         if cmd == 1:
             Code= input("Enter Course Code:")
-            Cat= eval(input("Enter Cats:"))
-            DAs= eval(input("Enter DAs:"))
-            FAt= int(input("Enter Fat:"))
-            Ex = CourseTheory(Code,Cat,FAt,DAs)
+            Cat= list(map(float,(input("Enter Cats:")).split()))
+            DAs= list(map(float,(input("Enter DAs:")).split()))
+            FAt= float(input("Enter Fat:"))
+            avg= float(input("Enter average {Enter -1 if unknown}:"))
+            if avg == -1:
+                std= float(input("Enter dummy grade:"))
+            else:    
+                std= float(input("Enter standard deviation:"))
+            Ex = CourseTheory(Code,Cat,FAt,DAs,avg,std)
             Ex.Save()
             del Ex
         if cmd == 2:
             Code= input("Enter Course Code:")
-            DAs= eval(input("Enter DAs:"))
-            FAt= int(input("Enter Fat:"))
+            DAs= list(map(float,(input("Enter Das:")).split()))
+            FAt= float(input("Enter Fat:"))
             Ex = CourseLab(Code,FAt,DAs)
             Ex.Save()
             del Ex
         if cmd == 3:
             Code= input("Enter Course Code:")
-            Pat= eval(input("Enter Pats:"))
-            MAt= int(input("Enter Mat:"))
-            FAt= int(input("Enter Fat:"))
+            Pat= list(map(float,(input("Enter Pats:")).split()))
+            MAt= float(input("Enter Mat:"))
+            FAt= float(input("Enter Fat:"))
             Ex = CourseEmbedded(Code,FAt,Pat,MAt)
             Ex.Save()
             del Ex
@@ -49,3 +55,6 @@ while True:
             ShowTable("Lab.csv")
         if cmd == 3:
             ShowTable("Embedded.csv")
+    if cmd==3:
+        break
+exit()
