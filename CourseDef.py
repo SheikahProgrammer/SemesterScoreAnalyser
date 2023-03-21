@@ -20,9 +20,9 @@ class CourseTheory:
         with open('Theory.csv', 'a', newline='') as file:
             csv.writer(file).writerow([self.code, BLTS(self.cats), BLTS(self.ias),self.fat ,self.score]) 
 
-EXAMPLE = CourseTheory('BEXP101L',[50,50],100,[10,10,10])
-EXAMPLE.ShowScore()
-EXAMPLE.Save()
+#EXAMPLE = CourseTheory('BEXP101L',[50,50],100,[10,10,10])
+#EXAMPLE.ShowScore()
+#EXAMPLE.Save()
 
 class CourseLab:
     def __init__(self,code, fat, ias):
